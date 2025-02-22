@@ -3,15 +3,19 @@
 
 ## Set up OpenWRT
 ```bash
-# /etc/dnsmasq.conf
+# ssh my_openwrt
+# add the below 2 lines to /etc/dnsmasq.conf
 dhcp-match=set:efi64,60,PXEClient:Arch:00007
 dhcp-boot=tag:efi64,netboot.xyz.efi,,YOURSERVERIP
 
-# /etc/config/dhcpd.conf
+# add this section to /etc/config/dhcpd.conf
 config boot linux
         option filename 'pxelinux.0'
         option serveraddress 'YOURSERVERIP'
         option servername 'netboot.xyz'
+
+
+/etc/init.d/dnsmasq restart
 ```
 
 
@@ -50,3 +54,4 @@ services:
 * https://openwrt.org/docs/guide-user/services/tftp.pxe-server
 * https://gist.github.com/rikka0w0/4c4caac493ce682cbed9ba3e928693d5
 * https://hub.docker.com/r/linuxserver/netbox
+* https://netboot.xyz/docs/faq/#will-my-favorite-distribution-work-with-netbootxyz
