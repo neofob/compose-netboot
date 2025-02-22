@@ -28,18 +28,18 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Etc/UTC
-      - MENU_VERSION=2.0.84 		# optional
-      - PORT_RANGE=30000:30010 	# optional
-      - SUBFOLDER=/ 						# optional
-      - NGINX_PORT=80 					# optional
-      - WEB_APP_PORT=3000 			# optional
+      - MENU_VERSION=2.0.84     # optional
+      - PORT_RANGE=30000:30010  # optional
+      - SUBFOLDER=/             # optional
+      - NGINX_PORT=80           # optional
+      - WEB_APP_PORT=3000       # optional
     volumes:
       - ./config:/config
       - /path/to/assets:/assets # optional
     ports:
       - 3000:3000 # netboot.xyz web UI
       - 69:69/udp # TFTP
-      - 8080:80 	# optional, asset http server
+      - 8080:80   # optional, asset http server
     restart: unless-stopped
 ```
 
